@@ -9,4 +9,5 @@ apt-get install -y nginx
 echo "Holberton School" > /var/www/html/index.html
 echo "Holberton School" > /var/www/html/index.nginx-debian.html
 
-service nginx start || service nginx restart
+service nginx start || service nginx restart || (nginx -g "daemon off;" &)
+sleep 2
