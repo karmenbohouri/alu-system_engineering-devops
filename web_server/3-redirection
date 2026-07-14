@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Configures nginx to install and redirect /redirect_me with a 301 status code
+
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update -y
+apt-get install -y nginx
+
+echo "Holberton School" > /var/www/html/index.html
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+
+sed -i '/server_name _;/a\    location /redirect_me { return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4; }' /etc/nginx/sites-available/default
+
+service nginx start || service nginx restart || (nginx -g "daemon off;" &)
+sleep 2
