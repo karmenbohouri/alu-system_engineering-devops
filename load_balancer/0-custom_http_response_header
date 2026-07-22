@@ -8,8 +8,4 @@ if ! sudo grep -q "X-Served-By" /etc/nginx/sites-available/default; then
     sudo sed -i '/listen 80 default_server;/a\\tadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
 fi
 
-if sudo service nginx status > /dev/null 2>&1; then
-    sudo service nginx restart
-else
-    sudo service nginx start
-fi
+sudo service nginx restart || sudo service nginx start
