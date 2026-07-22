@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>404 - Ceci n'est pas une page</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at center, #171512 0%, #060505 75%);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  body::after {
+    content: "";
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120vw;
+    height: 40vh;
+    background: radial-gradient(ellipse at center, rgba(212,175,120,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .dust {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(212,175,120,0.55);
+    border-radius: 50%;
+    filter: blur(0.5px);
+    animation: rise linear infinite;
+  }
+
+  @keyframes rise {
+    from { transform: translateY(0) translateX(0); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 0.6; }
+    to   { transform: translateY(-110vh) translateX(20px); opacity: 0; }
+  }
+
+  .scene {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .spotlight {
+    position: absolute;
+    top: -220px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 520px;
+    height: 620px;
+    background: radial-gradient(ellipse at top, rgba(255,235,200,0.10) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .code {
+    font-size: 6.5rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: #ece3d4;
+    text-shadow: 0 0 18px rgba(212,175,120,0.35), 0 0 2px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 2;
+  }
+
+  .frame {
+    margin: 1.2rem auto 0;
+    width: 240px;
+    height: 320px;
+    background: linear-gradient(145deg, #1c1712, #0e0b08);
+    border: 12px solid;
+    border-image: linear-gradient(160deg, #e8cf9a, #8a6b34, #d9b978, #6e5227) 1;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.6),
+      0 30px 60px rgba(0,0,0,0.7),
+      0 0 60px rgba(212,175,120,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-0.6deg); }
+    50% { transform: translateY(-12px) rotate(0.6deg); }
+  }
+
+  .page {
+    width: 120px;
+    height: 156px;
+    background: #0d0b09;
+    border: 1px solid rgba(212,175,120,0.35);
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.8);
+    position: relative;
+  }
+
+  .page .line {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    height: 5px;
+    background: rgba(212,175,120,0.4);
+    border-radius: 2px;
+  }
+
+  .page .line1 { top: 20px; }
+  .page .line2 { top: 34px; width: 60%; }
+  .page .line3 { top: 60px; }
+  .page .line4 { top: 74px; width: 80%; }
+  .page .line5 { top: 88px; width: 70%; }
+  .page .line6 { top: 112px; }
+  .page .line7 { top: 126px; width: 55%; }
+
+  .caption {
+    margin-top: 1.8rem;
+    font-style: italic;
+    font-size: 1.7rem;
+    color: #e8cf9a;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 2;
+  }
+
+  .rule {
+    width: 60px;
+    height: 1px;
+    background: rgba(212,175,120,0.5);
+    margin: 1rem auto;
+  }
+
+  .subtext {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-style: normal;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7d7468;
+    position: relative;
+    z-index: 2;
+  }
+
+  .subtext a {
+    color: #c9ac72;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,172,114,0.4);
+    padding-bottom: 2px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .subtext a:hover {
+    color: #ecd8ac;
+    border-color: #ecd8ac;
+  }
+</style>
+</head>
+<body>
+
+  <div class="spotlight"></div>
+
+  <div class="scene">
+    <div class="code">404</div>
+
+    <div class="frame">
+      <div class="page">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+        <span class="line line4"></span>
+        <span class="line line5"></span>
+        <span class="line line6"></span>
+        <span class="line line7"></span>
+      </div>
+    </div>
+
+    <p class="caption">Ceci n'est pas une page</p>
+    <div class="rule"></div>
+    <p class="subtext"><a href="/">Retourner à l'accueil</a></p>
+  </div>
+
+<script>
+  const total = 26;
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dust';
+    d.style.left = Math.random() * 100 + 'vw';
+    d.style.animationDuration = (8 + Math.random() * 10) + 's';
+    d.style.animationDelay = (Math.random() * 10) + 's';
+    document.body.appendChild(d);
+  }
+</script>
+
+</body>
+</html>
